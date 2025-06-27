@@ -1,6 +1,6 @@
 # Trabajo Práctico: Importador de CSV en C#
 
-Este proyecto es una aplicación de consola en C# que importa datos desde un archivo CSV a una base de datos PostgreSQL. Está pensado para ejecutarse directamente en tu sistema operativo, de forma rápida y portable.
+Este proyecto es una aplicación de consola en C# que importa datos desde un archivo CSV a una base de datos PostgreSQL. Está pensado para ejecutarse directamente desde el sistema operativo, de forma rápida y portable.
 
 ---
 
@@ -10,19 +10,12 @@ Este proyecto es una aplicación de consola en C# que importa datos desde un arc
 - PostgreSQL instalado y corriendo (local o remoto)
 
 ---
-
-## Estructura del proyecto
-TrabajoPracticoCSV/ ├── Application/ ├── Data/ │   └── alumnos.csv ├── Domain/ ├── Infrastructure/ ├── Program.cs ├── TrabajoPracticoCSV.csproj ├── appsettings.json ├── Infra/ │   └── .env └── Properties/
-
-
----
-
 ## Configuración de la base de datos
 
-1. Crea una base de datos PostgreSQL y una tabla `alumnos` con la estructura adecuada.
-2. Edita el archivo `Infra/.env` con tus datos de conexión:
+1. Crear una base de datos PostgreSQL y una tabla `alumnos` con la estructura adecuada.
+2. Editar el archivo `Infra/.env` con sus datos de conexión:
 
-POSTGRES_USER=tu_usuario POSTGRES_PASSWORD=tu_contraseña POSTGRES_DB=tu_base POSTGRES_PORT=5432
+POSTGRES_USER=su_usuario POSTGRES_PASSWORD=su_contraseña POSTGRES_DB=su_base POSTGRES_PORT=5432
 
 
 ---
@@ -31,19 +24,19 @@ POSTGRES_USER=tu_usuario POSTGRES_PASSWORD=tu_contraseña POSTGRES_DB=tu_base PO
 
 - El archivo `appsettings.json` define la cadena de conexión y la ruta al CSV.
 - Por defecto, la ruta del CSV es `Data/alumnos.csv`.
-- Asegúrate de que el archivo `Data/alumnos.csv` exista y tenga el formato correcto.
+- Debe asegurarse de que el archivo `Data/alumnos.csv` exista y tenga el formato correcto.
 
 ---
 
 ## Ejecución
 
-1. Abre una terminal en la carpeta `TrabajoPracticoCSV/TrabajoPracticoCSV`.
-2. Restaura dependencias y ejecuta:
-
-    ```sh
-    dotnet restore
-    dotnet run
+1. Abrir una terminal en la carpeta `TrabajoPracticoCSV/TrabajoPracticoCSV`.
+2. Compilar y ejecutar:
+   ```sh
+    dotnet publish -c Release -o out
+    .\out\TrabajoPracticoCSV.exe
     ```
+
 
 La aplicación conectará a la base, importará el CSV y mostrará cuántos registros se importaron y el tiempo de ejecución.
 
@@ -51,8 +44,8 @@ La aplicación conectará a la base, importará el CSV y mostrará cuántos regi
 
 ## Personalización
 
-- Para importar otro archivo, cambia la ruta en `appsettings.json` (`CsvFilePath`).
-- Puedes ajustar la configuración de la base de datos en el archivo `.env`.
+- Para importar otro archivo, cambiar la ruta en `appsettings.json` (`CsvFilePath`).
+- Puede ajustar la configuración de la base de datos en el archivo `.env`.
 
 ---
 
