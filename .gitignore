@@ -1,0 +1,43 @@
+# Archivos de Visual Studio
+.vs/
+.vscode/
+*.user
+*.suo
+
+# Ignorar archivos de datos grandes
+TrabajoPracticoCSV/TrabajoPracticoCSV/out/
+
+# Archivos de compilación
+bin/
+obj/
+
+# Archivos de dependencias
+packages/
+*.nupkg
+*.snupkg
+
+# Archivos de configuración local
+*.userosscache
+*.sln.docstates
+
+# Archivos de entorno
+*.env
+Infra/.env
+
+# Archivos de sistema
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Archivos de logs
+*.log
+
+# Archivos de base de datos locales
+*.mdf
+*.ldf
+
+# Otros
+_ReSharper*/
+*.resharper
+*.DotSettings.user
+.idea/
