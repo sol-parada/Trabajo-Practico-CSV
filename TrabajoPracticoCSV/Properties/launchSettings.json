@@ -1,0 +1,13 @@
+{
+  "profiles": {
+    "TrabajoPracticoCSV": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "POSTGRES_PORT": "5434",
+        "POSTGRES_DB": "dev_sysacad",
+        "POSTGRES_USER": "admin",
+        "POSTGRES_PASSWORD": "admin123contraseña"
+      }
+    }
+  }
+}
