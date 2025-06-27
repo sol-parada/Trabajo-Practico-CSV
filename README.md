@@ -1,99 +1,105 @@
 # Trabajo Práctico: Importador de CSV en C#
 
-Este proyecto es una aplicación de consola en C# que importa datos desde un archivo CSV a una base de datos PostgreSQL. Está pensado para ejecutarse directamente desde el sistema operativo, de forma rápida y portable.
-
----
+Este proyecto es una aplicación de consola en C# que importa datos desde un archivo CSV a una base de datos PostgreSQL. Está diseñado para ejecutarse directamente desde el sistema operativo de forma rápida y portable.
 
 ## Requisitos
 
-- [.NET 8.0 SDK](https://dotnet.microsoft.com/download)
-- PostgreSQL instalado y corriendo (local o remoto)
-
----
+- .NET 8.0 SDK
+- PostgreSQL instalado y en ejecución (local o remoto)
 
 ## Configuración de la base de datos
 
 1. Crear una base de datos PostgreSQL y una tabla `alumnos` con la estructura adecuada (puede ser local o remota).
-2. Editar el archivo `Infra/.env` con sus datos de conexión:
+2. Editar el archivo `Infra/.env` con los datos de conexión:
 
-POSTGRES_USER=su_usuario
-POSTGRES_PASSWORD=su_contraseña
-POSTGRES_DB=su_base
-POSTGRES_PORT=5432
-> **Nota:** El puerto por defecto de PostgreSQL es `5432`. Si usa otro, debe cambiarlo acá.
+    ```
+    POSTGRES_USER=su_usuario
+    POSTGRES_PASSWORD=su_contraseña
+    POSTGRES_DB=su_base_de_datos
+    POSTGRES_PORT=5432
+    ```
 
----
+    **Nota:** El puerto por defecto de PostgreSQL es 5432. Si utiliza otro puerto, debe modificarlo en el archivo.
 
 ## Configuración de la aplicación
 
-- El archivo `appsettings.json` define la cadena de conexión y la ruta al CSV.
+- El archivo `appsettings.json` define la cadena de conexión y la ruta al archivo CSV.
 - Por defecto, la ruta del CSV es `Data/alumnos.csv`.
-- Debe asegurarse de que el archivo `Data/alumnos.csv` exista y tenga el formato correcto.
-
----
+- Asegúrese de que el archivo `Data/alumnos.csv` exista y tenga el formato correcto.
 
 ## Ejecución
 
 1. Abrir una terminal en la carpeta `TrabajoPracticoCSV/TrabajoPracticoCSV`.
-2. Para compilar la aplicación:
-      ```sh
-       dotnet publish -c Release -o out
-       ```
-3. Para ejecutar:
-   •	En Windows:
-       ```sh
-       .\out\TrabajoPracticoCSV.exe
-       ```
-   •	En Linux/macOS:
-       ```sh
-        chmod +x ./out/TrabajoPracticoCSV
-         ./out/TrabajoPracticoCSV
-       ```
+2. Compilar la aplicación:
 
+    ```bash
+    dotnet publish -c Release -o out
+    ```
 
-La aplicación conectará a la base, importará el CSV y mostrará cuántos registros se importaron y el tiempo de ejecución.
+3. Ejecutar:
 
----
+    - **En Windows:**
+      ```cmd
+      .\out\TrabajoPracticoCSV.exe
+      ```
+    - **En Linux/macOS:**
+      ```bash
+      chmod +x ./out/TrabajoPracticoCSV
+      ./out/TrabajoPracticoCSV
+      ```
+
+La aplicación se conectará a la base de datos, importará el archivo CSV y mostrará la cantidad de registros importados junto con el tiempo de ejecución.
 
 ## Personalización
 
-- Para importar otro archivo, cambiar la ruta en `appsettings.json` (`CsvFilePath`).
-- Puede ajustar la configuración de la base de datos en el archivo `.env`.
-  
-- **Ajuste de rendimiento:**
-  La aplicación permite ajustar dos parámetros clave para optimizar la importación según la capacidad de su sistema:
-•	BatchSize: cantidad de registros procesados por lote.
-•	MaxDegreeOfParallelism: cantidad de procesos concurrentes.
-  En `appsettings.json` puede modificar los valores de `BatchSize` y `MaxDegreeOfParallelism` para optimizar la velocidad de importación según su sistema operativo:
-  - Ejemplo:
-    ```json
-    {
-      "BatchSize": 10000,
-      "MaxDegreeOfParallelism": 16
-    }
-    ```
-    
----
+### Cambiar archivo de origen
+
+Para importar otro archivo, modifique la ruta en `appsettings.json` (`CsvFilePath`).
+
+### Configuración de base de datos
+
+Ajuste la configuración de la base de datos en el archivo `Infra/.env`.
+
+### Optimización de rendimiento
+
+La aplicación permite ajustar dos parámetros clave para optimizar la importación según la capacidad del sistema:
+
+- **BatchSize:** cantidad de registros procesados por lote
+- **MaxDegreeOfParallelism:** cantidad de procesos concurrentes
+
+En `appsettings.json` puede modificar estos valores:
+
+```json
+{
+  "BatchSize": 10000,
+  "MaxDegreeOfParallelism": 16
+}
+```
 
 ## Dependencias principales
 
-- CsvHelper
-- Dapper
-- Npgsql
-- DotNetEnv
-- Microsoft.Extensions.Configuration
+- **CsvHelper:** Procesamiento de archivos CSV
+- **Dapper:** Micro ORM para .NET
+- **Npgsql:** Proveedor de datos PostgreSQL para .NET
+- **DotNetEnv:** Carga de variables de entorno desde archivos .env
+- **Microsoft.Extensions.Configuration:** Sistema de configuración de .NET
+
+## Solución de problemas
+
+Si encuentra un error de conexión (ejemplo: `"Failed to connect to 127.0.0.1:5432"`), verifique que:
+
+- PostgreSQL esté ejecutándose
+- Los datos de conexión en el archivo `.env` sean correctos
+- El puerto especificado esté disponible
+
+## Características técnicas
+
+- Código modularizado y documentado
+- Proceso de importación eficiente y asincrónico
+- Soporte para procesamiento por lotes
+- Ejecución multiplataforma
 
 ---
 
-## Notas
-
-- El código está modularizado y documentado.
-- El proceso de importación es eficiente y asincrónico.
-- Si ve un error de conexión (por ejemplo, "Failed to connect to 127.0.0.1:5432"), debe asegurarse de que PostgreSQL esté corriendo y que los datos de `.env` sean correctos.
-
-
----
-
-## Autor
-
+**Autor:**  
 Sol Parada
