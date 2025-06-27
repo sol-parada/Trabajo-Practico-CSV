@@ -16,7 +16,10 @@ Este proyecto es una aplicación de consola en C# que importa datos desde un arc
 1. Crear una base de datos PostgreSQL y una tabla `alumnos` con la estructura adecuada (puede ser local o remota).
 2. Editar el archivo `Infra/.env` con sus datos de conexión:
 
-POSTGRES_USER=su_usuario POSTGRES_PASSWORD=su_contraseña POSTGRES_DB=su_base POSTGRES_PORT=5432
+POSTGRES_USER=su_usuario
+POSTGRES_PASSWORD=su_contraseña
+POSTGRES_DB=su_base
+POSTGRES_PORT=5432
 > **Nota:** El puerto por defecto de PostgreSQL es `5432`. Si usa otro, debe cambiarlo acá.
 
 ---
