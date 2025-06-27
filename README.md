@@ -13,10 +13,10 @@ Este proyecto es una aplicación de consola en C# que importa datos desde un arc
 2. Editar el archivo `Infra/.env` con los datos de conexión:
 
     ```
+    POSTGRES_PORT=5432
+    POSTGRES_DB=su_base_de_datos
     POSTGRES_USER=su_usuario
     POSTGRES_PASSWORD=su_contraseña
-    POSTGRES_DB=su_base_de_datos
-    POSTGRES_PORT=5432
     ```
 
     **Nota:** El puerto por defecto de PostgreSQL es 5432. Si utiliza otro puerto, debe modificarlo en el archivo.
