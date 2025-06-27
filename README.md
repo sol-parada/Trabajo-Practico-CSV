@@ -33,10 +33,10 @@ POSTGRES_USER=su_usuario POSTGRES_PASSWORD=su_contraseña POSTGRES_DB=su_base PO
 
 1. Abrir una terminal en la carpeta `TrabajoPracticoCSV/TrabajoPracticoCSV`.
 2. Para compilar la aplicación:
-   ```sh
-    dotnet publish -c Release -o out
-    ```
-3.Para ejecutar:
+      ```sh
+       dotnet publish -c Release -o out
+       ```
+3. Para ejecutar:
    •	En Windows:
        ```sh
        .\out\TrabajoPracticoCSV.exe
