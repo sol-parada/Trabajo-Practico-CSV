@@ -17,7 +17,7 @@ Este proyecto es una aplicación de consola en C# que importa datos desde un arc
 2. Editar el archivo `Infra/.env` con sus datos de conexión:
 
 POSTGRES_USER=su_usuario POSTGRES_PASSWORD=su_contraseña POSTGRES_DB=su_base POSTGRES_PORT=5432
-> **Nota:** El puerto por defecto de PostgreSQL es `5432`. Si usa otro, cámbialo aquí.
+> **Nota:** El puerto por defecto de PostgreSQL es `5432`. Si usa otro, debe cambiarlo acá.
 
 ---
 
@@ -32,11 +32,20 @@ POSTGRES_USER=su_usuario POSTGRES_PASSWORD=su_contraseña POSTGRES_DB=su_base PO
 ## Ejecución
 
 1. Abrir una terminal en la carpeta `TrabajoPracticoCSV/TrabajoPracticoCSV`.
-2. Compilar y ejecutar:
+2. Para compilar la aplicación:
    ```sh
     dotnet publish -c Release -o out
-    .\out\TrabajoPracticoCSV.exe
     ```
+3.Para ejecutar:
+   •	En Windows:
+       ```sh
+       .\out\TrabajoPracticoCSV.exe
+       ```
+   •	En Linux/macOS:
+       ```sh
+        chmod +x ./out/TrabajoPracticoCSV
+         ./out/TrabajoPracticoCSV
+       ```
 
 
 La aplicación conectará a la base, importará el CSV y mostrará cuántos registros se importaron y el tiempo de ejecución.
@@ -47,6 +56,7 @@ La aplicación conectará a la base, importará el CSV y mostrará cuántos regi
 
 - Para importar otro archivo, cambiar la ruta en `appsettings.json` (`CsvFilePath`).
 - Puede ajustar la configuración de la base de datos en el archivo `.env`.
+  
 - **Ajuste de rendimiento:**
   La aplicación permite ajustar dos parámetros clave para optimizar la importación según la capacidad de su sistema:
 •	BatchSize: cantidad de registros procesados por lote.
