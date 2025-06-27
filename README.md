@@ -13,6 +13,19 @@ Este proyecto es una aplicación de consola en C# que importa datos desde un arc
 ## Configuración de la base de datos
 
 1. Crear una base de datos PostgreSQL y una tabla `alumnos` con la estructura adecuada (puede ser local o remota).
+
+## Estructura de la tabla `alumnos`
+La tabla `alumnos` debe tener la siguiente estructura en la base de datos PostgreSQL:
+
+- **apellido:** TEXT  
+- **nombre:** TEXT  
+- **nro_documento:** TEXT  
+- **tipo_documento:** TEXT  
+- **fecha_nacimiento:** DATE  
+- **sexo:** TEXT  
+- **nro_legajo:** INT  
+- **fecha_ingreso:** DATE  
+
 2. Editar el archivo `Infra/.env` con los datos de conexión:
 
     ```
