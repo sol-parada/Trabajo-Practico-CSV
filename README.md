@@ -47,7 +47,19 @@ La aplicación conectará a la base, importará el CSV y mostrará cuántos regi
 
 - Para importar otro archivo, cambiar la ruta en `appsettings.json` (`CsvFilePath`).
 - Puede ajustar la configuración de la base de datos en el archivo `.env`.
-
+- **Ajuste de rendimiento:**
+  La aplicación permite ajustar dos parámetros clave para optimizar la importación según la capacidad de su sistema:
+•	BatchSize: cantidad de registros procesados por lote.
+•	MaxDegreeOfParallelism: cantidad de procesos concurrentes.
+  En `appsettings.json` puede modificar los valores de `BatchSize` y `MaxDegreeOfParallelism` para optimizar la velocidad de importación según su sistema operativo:
+  - Ejemplo:
+    ```json
+    {
+      "BatchSize": 10000,
+      "MaxDegreeOfParallelism": 16
+    }
+    ```
+    
 ---
 
 ## Dependencias principales
