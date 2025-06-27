@@ -2,6 +2,9 @@
 
 Este proyecto es una aplicación de consola en C# que importa datos desde un archivo CSV a una base de datos PostgreSQL. Está diseñado para ejecutarse directamente desde el sistema operativo de forma rápida y portable.
 
+## Historial de cambios
+- 27/06/2025: Se realizaron cambios importantes en la estructura del proyecto y actualización de mensajes de commit.
+
 ## Requisitos
 
 - .NET 8.0 SDK
